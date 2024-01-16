@@ -1,14 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".presentation.cryptodetail.view.CryptoDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/cryptoDetailLogo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher_foreground" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/cryptoDetailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bitcoin"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/cryptoDetailSymbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BTC"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
+            android:layout_marginLeft="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/cryptoDetailPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$42,612.65"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/cryptoDetailChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-0.85% (24h)"
+            android:textColor="@color/red"
+            android:textSize="16sp"
+            android:layout_marginLeft="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/market_cap"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/cryptoDetailMarketCap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$836,165,426,747"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="end"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/volume_24h"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/cryptoDetailVolume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$23,213,487,005"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="end"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/volume_market_cap_24h"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/cryptoDetailVolumeMarketCap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.77%"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="end"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/circulating_supply"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/cryptoDetailCirculatingSupply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19,599,406 BTC"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="end"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_supply"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/cryptoDetailTotalSupply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19,599,406 BTC"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="end"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/max_supply"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/cryptoDetailMaxSupply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21,000,000 BTC"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="end"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

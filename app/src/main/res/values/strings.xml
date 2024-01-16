@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">CryptoApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="crypto_symbol">Symbol</string>
+    <string name="last_price">Last Price</string>
+    <string name="change_1h">1h Change</string>
+    <string name="change_24h">24h Change</string>
+    <string name="market_cap">Market cap</string>
+    <string name="volume_24h">Volume (24h)</string>
+    <string name="volume_market_cap_24h">Volume/Market cap (24h)</string>
+    <string name="circulating_supply">Circulating supply</string>
+    <string name="total_supply">Total supply</string>
+    <string name="max_supply">Max. supply</string>
 </resources>
