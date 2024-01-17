@@ -3,8 +3,8 @@
     <string name="search">Search</string>
     <string name="crypto_symbol">Symbol</string>
     <string name="last_price">Last Price</string>
-    <string name="change_1h">1h Change</string>
-    <string name="change_24h">24h Change</string>
+    <string name="change_1h">1h Chg%</string>
+    <string name="change_24h">24h Chg%</string>
     <string name="market_cap">Market cap</string>
     <string name="volume_24h">Volume (24h)</string>
     <string name="volume_market_cap_24h">Volume/Market cap (24h)</string>
