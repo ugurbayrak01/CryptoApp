@@ -8,9 +8,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetCryptosUseCase @Inject constructor(private val repository: CryptoRepository) {
+class GetCryptosFromAPIUseCase @Inject constructor(private val repository: CryptoRepository) {
 
-    fun executeGetCryptos() : Flow<Resource<List<Crypto>>> = flow {
+    fun executeGetCryptosFromAPI() : Flow<Resource<List<Crypto>>> = flow {
         try {
             emit(Resource.Loading())
             val cryptoList = repository.getCryptos()

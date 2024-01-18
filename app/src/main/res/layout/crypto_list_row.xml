@@ -52,7 +52,7 @@
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:text="@{crypto.percentChange1h}"
-            android:textColor="@color/white"
+            android:textColor="@{crypto.percentChange1hColor}"
             android:textSize="16sp"
             android:gravity="end"
             android:layout_weight="1" />
@@ -62,7 +62,7 @@
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:text="@{crypto.percentChange24h}"
-            android:textColor="@color/white"
+            android:textColor="@{crypto.percentChange24hColor}"
             android:textSize="16sp"
             android:gravity="end"
             android:layout_weight="1" />

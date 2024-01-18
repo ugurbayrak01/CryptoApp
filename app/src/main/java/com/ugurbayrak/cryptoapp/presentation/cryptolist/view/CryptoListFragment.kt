@@ -36,10 +36,18 @@ class CryptoListFragment @Inject constructor() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[CryptoListViewModel::class.java]
-        viewModel.getCryptos()
+        viewModel.refreshCryptos()
 
         binding.cryptoListRecyclerview.adapter = cryptoRecyclerAdapter
         binding.cryptoListRecyclerview.layoutManager = LinearLayoutManager(requireContext())
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            binding.cryptoListRecyclerview.visibility = View.GONE
+            binding.cryptoListError.visibility = View.GONE
+            binding.cryptoListProgressBar.visibility = View.VISIBLE
+            binding.swipeRefreshLayout.isRefreshing = false
+            viewModel.getCryptosFromAPI()
+        }
 
         collectFlow()
     }

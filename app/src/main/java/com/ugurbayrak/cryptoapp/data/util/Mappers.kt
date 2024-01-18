@@ -1,5 +1,6 @@
 package com.ugurbayrak.cryptoapp.data.util
 
+import android.graphics.Color
 import com.ugurbayrak.cryptoapp.data.remote.dto.CryptoResponse
 import com.ugurbayrak.cryptoapp.domain.model.Crypto
 import java.text.DecimalFormat
@@ -17,7 +18,9 @@ fun CryptoResponse.toCrypto() : List<Crypto> {
             totalSupply = formatNumber(it.totalSupply, " ${it.symbol}"),
             marketCap = formatNumber(it.quote.USD.marketCap, "$", false),
             percentChange1h = formatNumber(it.quote.USD.percentChange1h, "%"),
+            percentChange1hColor = setColor(it.quote.USD.percentChange1h),
             percentChange24h = formatNumber(it.quote.USD.percentChange24h, "%"),
+            percentChange24hColor = setColor(it.quote.USD.percentChange24h),
             price = formatNumber(it.quote.USD.price, "$", false),
             volume24h = formatNumber(it.quote.USD.volume24h, "$", false),
             volumeChange24h = formatNumber(it.quote.USD.volumeChange24h, "%"),
@@ -48,4 +51,8 @@ private fun formatNumber(number: Number?, symbol: String?, appendToEnd: Boolean 
             "$symbol$formattedNumber"
         }
     }
+}
+
+private fun setColor(number: Double) : Int {
+    return if(number < 0) Color.parseColor("#FF0000") else Color.parseColor("#00FF00")
 }
