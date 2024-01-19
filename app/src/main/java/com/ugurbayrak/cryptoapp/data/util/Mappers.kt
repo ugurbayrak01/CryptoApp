@@ -54,5 +54,5 @@ private fun formatNumber(number: Number?, symbol: String?, appendToEnd: Boolean 
 }
 
 private fun setColor(number: Double) : Int {
-    return if(number < 0) Color.parseColor("#FF0000") else Color.parseColor("#00FF00")
+    return if(number < 0) Color.parseColor("#C02020") else Color.parseColor("#20C020")
 }

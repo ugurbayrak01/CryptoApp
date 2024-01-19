@@ -1,4 +1,5 @@
 package com.ugurbayrak.cryptoapp.presentation.cryptolist
 
-class CryptoListEvent {
+sealed class CryptoListEvent {
+    data class Search(val search: String) : CryptoListEvent()
 }
