@@ -24,7 +24,7 @@ class CryptoListViewModel @Inject constructor(
     application: Application
 ) : AndroidViewModel(application) {
     private var customPreferences = CustomSharedPreferences(getApplication())
-    private var refreshTime = 5 * 60 * 1000 * 1000 * 1000L
+    private var refreshTime = 20 * 60 * 1000 * 1000 * 1000L
     private var initialCryptos = listOf<Crypto>()
     private var isSearchStarting = true
 
@@ -41,7 +41,10 @@ class CryptoListViewModel @Inject constructor(
 
         viewModelScope.launch(Dispatchers.Default) {
             if(search.isEmpty()) {
-                _state.value = CryptoListState(cryptos = initialCryptos)
+                if(initialCryptos.isNotEmpty()) {
+                    _state.value = CryptoListState(cryptos = initialCryptos)
+                }
+
                 isSearchStarting = true
                 return@launch
             }
@@ -109,7 +112,7 @@ class CryptoListViewModel @Inject constructor(
     private fun getCryptosFromSQLite() {
         _state.value = CryptoListState(isLoading = true)
 
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.Default)  {
             try {
                 repository.getAllCryptos().collect {
                     _state.value = CryptoListState(cryptos = it)

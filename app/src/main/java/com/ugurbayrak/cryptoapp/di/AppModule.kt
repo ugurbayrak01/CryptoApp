@@ -3,7 +3,6 @@ package com.ugurbayrak.cryptoapp.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.ugurbayrak.cryptoapp.data.local.CryptoDao
 import com.ugurbayrak.cryptoapp.data.local.CryptoDatabase
 import com.ugurbayrak.cryptoapp.data.remote.CryptoAPI

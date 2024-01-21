@@ -23,7 +23,7 @@ fun CryptoResponse.toCrypto() : List<Crypto> {
             percentChange24hColor = setColor(it.quote.USD.percentChange24h),
             price = formatNumber(it.quote.USD.price, "$", false),
             volume24h = formatNumber(it.quote.USD.volume24h, "$", false),
-            volumeChange24h = formatNumber(it.quote.USD.volumeChange24h, "%"),
+            percentVolumeMarketCap = formatNumber(it.quote.USD.volume24h / it.quote.USD.marketCap * 100, "%"),
             logoUrl = getLogoUrl(it.id),
             detailLogoUrl = getDetailLogoUrl(it.id)
         )
@@ -32,7 +32,7 @@ fun CryptoResponse.toCrypto() : List<Crypto> {
 
 private fun getLogoUrl(id: Int) = "https://s2.coinmarketcap.com/static/img/coins/32x32/${id}.png"
 
-private fun getDetailLogoUrl(id: Int) = "https://s2.coinmarketcap.com/static/img/coins/200x200/${id}.png"
+private fun getDetailLogoUrl(id: Int) = "https://s2.coinmarketcap.com/static/img/coins/128x128/${id}.png"
 
 private fun formatNumber(number: Number?, symbol: String?, appendToEnd: Boolean = true): String {
     if (number == null) {

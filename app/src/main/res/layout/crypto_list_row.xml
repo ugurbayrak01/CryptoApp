@@ -6,12 +6,16 @@
         <variable
             name="crypto"
             type="com.ugurbayrak.cryptoapp.domain.model.Crypto" />
+        <variable
+            name="listener"
+            type="com.ugurbayrak.cryptoapp.presentation.adapter.CryptoClickListener" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:onClick="@{listener::onCryptoClicked}"
         android:gravity="center_vertical"
         android:paddingBottom="24dp">
 
@@ -25,7 +29,7 @@
                 android:id="@+id/cryptoListLogo"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:download_url="@{crypto.logoUrl}"/>
+                android:download_logo="@{crypto.logoUrl}"/>
 
             <TextView
                 android:id="@+id/cryptoListSymbol"

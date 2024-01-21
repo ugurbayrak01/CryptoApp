@@ -1,16 +1,19 @@
 package com.ugurbayrak.cryptoapp.presentation.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ugurbayrak.cryptoapp.R
 import com.ugurbayrak.cryptoapp.databinding.CryptoListRowBinding
 import com.ugurbayrak.cryptoapp.domain.model.Crypto
+import com.ugurbayrak.cryptoapp.presentation.cryptolist.view.CryptoListFragmentDirections
 
-class CryptoRecyclerAdapter() : RecyclerView.Adapter<CryptoRecyclerAdapter.CryptoViewHolder>() {
+class CryptoRecyclerAdapter() : RecyclerView.Adapter<CryptoRecyclerAdapter.CryptoViewHolder>(), CryptoClickListener {
 
     class CryptoViewHolder(var binding: CryptoListRowBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -37,6 +40,7 @@ class CryptoRecyclerAdapter() : RecyclerView.Adapter<CryptoRecyclerAdapter.Crypt
             parent,
             false
         )
+        binding.listener = this
         return CryptoViewHolder(binding)
     }
 
@@ -46,5 +50,12 @@ class CryptoRecyclerAdapter() : RecyclerView.Adapter<CryptoRecyclerAdapter.Crypt
 
     override fun onBindViewHolder(holder: CryptoViewHolder, position: Int) {
         holder.binding.crypto = cryptos[position]
+        holder.binding.root.tag = cryptos[position].id
+    }
+
+    override fun onCryptoClicked(view: View) {
+        val id = view.tag.toString().toInt()
+        val action = CryptoListFragmentDirections.actionCryptoListFragmentToCryptoDetailFragment(id)
+        Navigation.findNavController(view).navigate(action)
     }
 }

@@ -1,6 +1,5 @@
 package com.ugurbayrak.cryptoapp.domain.model
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -18,7 +17,7 @@ data class Crypto(
     val percentChange24hColor: Int,
     val price: String,
     val volume24h: String,
-    val volumeChange24h: String,
+    val percentVolumeMarketCap: String,
     val logoUrl: String,
     val detailLogoUrl: String,
     @PrimaryKey(autoGenerate = true)

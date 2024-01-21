@@ -18,5 +18,9 @@
         android:id="@+id/cryptoDetailFragment"
         android:name="com.ugurbayrak.cryptoapp.presentation.cryptodetail.view.CryptoDetailFragment"
         android:label="fragment_crypto_detail"
-        tools:layout="@layout/fragment_crypto_detail" />
+        tools:layout="@layout/fragment_crypto_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
