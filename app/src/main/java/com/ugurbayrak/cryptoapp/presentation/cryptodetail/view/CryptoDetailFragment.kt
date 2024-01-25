@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.ugurbayrak.cryptoapp.databinding.FragmentCryptoDetailBinding
@@ -47,7 +48,10 @@ class CryptoDetailFragment @Inject constructor() : Fragment() {
                 Toast.makeText(requireContext(),it.error,Toast.LENGTH_LONG).show()
             } else {
                 it.crypto?.let {crypto ->
-                    binding.crypto = crypto
+                    _binding?.let {
+                        binding.crypto = crypto
+                    }
+                    (activity as AppCompatActivity).supportActionBar?.title = crypto.name
                 }
             }
         }.launchIn(lifecycleScope)

@@ -19,7 +19,7 @@ class CryptoRecyclerAdapter() : RecyclerView.Adapter<CryptoRecyclerAdapter.Crypt
 
     private val diffUtil = object : DiffUtil.ItemCallback<Crypto>() {
         override fun areItemsTheSame(oldItem: Crypto, newItem: Crypto): Boolean {
-            return oldItem == newItem
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Crypto, newItem: Crypto): Boolean {
@@ -40,7 +40,6 @@ class CryptoRecyclerAdapter() : RecyclerView.Adapter<CryptoRecyclerAdapter.Crypt
             parent,
             false
         )
-        binding.listener = this
         return CryptoViewHolder(binding)
     }
 
@@ -51,6 +50,7 @@ class CryptoRecyclerAdapter() : RecyclerView.Adapter<CryptoRecyclerAdapter.Crypt
     override fun onBindViewHolder(holder: CryptoViewHolder, position: Int) {
         holder.binding.crypto = cryptos[position]
         holder.binding.root.tag = cryptos[position].id
+        holder.binding.listener = this
     }
 
     override fun onCryptoClicked(view: View) {

@@ -35,7 +35,7 @@ private fun getLogoUrl(id: Int) = "https://s2.coinmarketcap.com/static/img/coins
 private fun getDetailLogoUrl(id: Int) = "https://s2.coinmarketcap.com/static/img/coins/128x128/${id}.png"
 
 private fun formatNumber(number: Number?, symbol: String?, appendToEnd: Boolean = true): String {
-    if (number == null) {
+    if (number == null || number == 0.0) {
         return "--"
     }
 

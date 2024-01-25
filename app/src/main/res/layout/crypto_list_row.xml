@@ -17,7 +17,8 @@
         android:orientation="horizontal"
         android:onClick="@{listener::onCryptoClicked}"
         android:gravity="center_vertical"
-        android:paddingBottom="24dp">
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
         <LinearLayout
             android:layout_width="120dp"
@@ -29,7 +30,8 @@
                 android:id="@+id/cryptoListLogo"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:download_logo="@{crypto.logoUrl}"/>
+                android:download_logo="@{crypto.logoUrl}"
+                android:contentDescription="@{crypto.name}" />
 
             <TextView
                 android:id="@+id/cryptoListSymbol"
@@ -38,7 +40,7 @@
                 android:text="@{crypto.symbol}"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                android:layout_marginLeft="6dp" />
+                android:layout_marginStart="6dp" />
         </LinearLayout>
 
         <TextView

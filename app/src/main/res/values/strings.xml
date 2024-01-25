@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">CryptoApp</string>
     <string name="search">Search</string>
+    <string name="clear">Clear</string>
+    <string name="cancel">Cancel</string>
     <string name="crypto_symbol">Symbol</string>
     <string name="last_price">Last Price</string>
     <string name="change_1h">1h Chg%</string>

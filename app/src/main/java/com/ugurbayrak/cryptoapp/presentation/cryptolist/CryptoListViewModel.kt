@@ -27,10 +27,18 @@ class CryptoListViewModel @Inject constructor(
     private var refreshTime = 20 * 60 * 1000 * 1000 * 1000L
     private var initialCryptos = listOf<Crypto>()
     private var isSearchStarting = true
+    private var isInitialized = false
 
     private val _state = MutableStateFlow(CryptoListState())
     val state: StateFlow<CryptoListState>
         get() = _state
+
+    init{
+        if(!isInitialized) {
+            refreshCryptos()
+            isInitialized = true
+        }
+    }
 
     private fun searchCrypto(search: String) {
         val listToSearch = if(isSearchStarting) {
@@ -44,7 +52,6 @@ class CryptoListViewModel @Inject constructor(
                 if(initialCryptos.isNotEmpty()) {
                     _state.value = CryptoListState(cryptos = initialCryptos)
                 }
-
                 isSearchStarting = true
                 return@launch
             }
@@ -62,7 +69,7 @@ class CryptoListViewModel @Inject constructor(
         }
     }
 
-    fun refreshCryptos() {
+    private fun refreshCryptos() {
         val updateTime = customPreferences.getTime()
 
         if(updateTime != null && updateTime != 0L && System.nanoTime() - updateTime < refreshTime) {
@@ -104,6 +111,7 @@ class CryptoListViewModel @Inject constructor(
                 _state.value = CryptoListState(error = e.localizedMessage ?: "Error!")
             } finally {
                 _state.value = CryptoListState(cryptos = cryptos)
+                initialCryptos = state.value.cryptos
                 customPreferences.saveTime(System.nanoTime())
             }
         }

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/cryptoListFragment"
         android:name="com.ugurbayrak.cryptoapp.presentation.cryptolist.view.CryptoListFragment"
-        android:label="fragment_crypto_list"
+        android:label="CryptoApp"
         tools:layout="@layout/fragment_crypto_list" >
         <action
             android:id="@+id/action_cryptoListFragment_to_cryptoDetailFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/cryptoDetailFragment"
         android:name="com.ugurbayrak.cryptoapp.presentation.cryptodetail.view.CryptoDetailFragment"
-        android:label="fragment_crypto_detail"
+        android:label=""
         tools:layout="@layout/fragment_crypto_detail" >
         <argument
             android:name="id"
